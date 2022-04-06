@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_login_designs/pages/login_2.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'login_1.dart';
@@ -43,8 +44,17 @@ const lightColorScheme = ColorScheme(
 );
 
 class _HomePageState extends State<HomePage> {
-  List<Map<String, String>> pages = [
-    {"image": "LoginOne.jpg", "title": "Login Design Dark"},
+  List<Map<String, dynamic>> pages = [
+    {
+      "image": "LoginOne.jpg",
+      "title": "Login Design Dark",
+      "page": const LoginPageOne()
+    },
+    {
+      "image": "LoginOne.jpg",
+      "title": "Login Design Light",
+      "page": const LoginPageTwo()
+    },
   ];
 
   @override
@@ -72,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                   // primary: false,
                   padding: const EdgeInsets.only(top: 20),
                   itemCount: pages.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisSpacing: 14,
                     mainAxisSpacing: 14,
                     crossAxisCount: 2,
@@ -82,6 +92,7 @@ class _HomePageState extends State<HomePage> {
                     return generateCard(
                       pages[index]['title'].toString(),
                       pages[index]['image'].toString(),
+                      pages[index]['page'],
                     );
                   },
                 ),
@@ -93,15 +104,15 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget generateCard(title, image) {
+  Widget generateCard(title, image, route) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => const LoginPageOne()));
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => route));
       },
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderRadius: const BorderRadius.all(Radius.circular(8)),
           image: DecorationImage(
             image: AssetImage("assets/" + image),
             fit: BoxFit.cover,
@@ -118,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                   color: Color.fromRGBO(255, 255, 255, 0.2)),
               child: Text(
                 title,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
             ),
           ],
