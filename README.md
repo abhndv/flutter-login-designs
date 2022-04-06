@@ -2,9 +2,9 @@
 
  A few flutter login page designs.
  
- Sl | Screenshots   
- --- | --- 
- 1 | <img src="assets/LoginOne.jpg" height= "400"/>
+| Screenshots   
+| --- 
+| <img src="assets/LoginOne.jpg" height= "400"/>
 
 ## Getting Started
 
