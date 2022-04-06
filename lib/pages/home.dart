@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -42,6 +43,10 @@ const lightColorScheme = ColorScheme(
 );
 
 class _HomePageState extends State<HomePage> {
+  List<Map<String, String>> pages = [
+    {"image": "LoginOne.jpg", "title": "Login Design Dark"},
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,55 +57,71 @@ class _HomePageState extends State<HomePage> {
                 .apply(displayColor: Colors.white, bodyColor: Colors.white),
             useMaterial3: true),
         child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 8),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Flutter Login Designs',
-                        style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.w600),
-                      ),
-                      SingleChildScrollView(
-                        padding: const EdgeInsets.only(top: 18),
-                        child: Column(
-                          children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) =>
-                                        const LoginPageOne()));
-                              },
-                              style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(6),
-                                ),
-                                padding: const EdgeInsets.all(16),
-                              ),
-                              child: Row(
-                                children: const [
-                                  Text(
-                                    'Login Design One',
-                                    style: TextStyle(fontSize: 16),
-                                  ),
-                                  Icon(Icons.arrow_right_alt_rounded)
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
+                const Text(
+                  'Flutter Login Designs',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                ),
+                GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  // primary: false,
+                  padding: const EdgeInsets.only(top: 20),
+                  itemCount: pages.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisSpacing: 14,
+                    mainAxisSpacing: 14,
+                    crossAxisCount: 2,
+                    childAspectRatio: 2 / 4,
                   ),
+                  itemBuilder: (BuildContext context, int index) {
+                    return generateCard(
+                      pages[index]['title'].toString(),
+                      pages[index]['image'].toString(),
+                    );
+                  },
                 ),
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget generateCard(title, image) {
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const LoginPageOne()));
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          image: DecorationImage(
+            image: AssetImage("assets/" + image),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 14),
+              decoration: const BoxDecoration(
+                  color: Color.fromRGBO(255, 255, 255, 0.2)),
+              child: Text(
+                title,
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ],
         ),
       ),
     );
