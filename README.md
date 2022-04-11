@@ -4,7 +4,8 @@
  
 | Screenshots   
 | --- 
-| <img src="assets/LoginOne.jpg" height= "400"/>
+| <img src="assets/screenshots/LoginOne.jpg" height= "400"/>
+| <img src="assets/screenshots/LoginTwo.jpg" height= "400"/>
 
 ## Getting Started
 

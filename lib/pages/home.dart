@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login_designs/pages/login_2.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -51,7 +50,7 @@ class _HomePageState extends State<HomePage> {
       "page": const LoginPageOne()
     },
     {
-      "image": "LoginOne.jpg",
+      "image": "LoginTwo.jpg",
       "title": "Login Design Light",
       "page": const LoginPageTwo()
     },
@@ -112,9 +111,10 @@ class _HomePageState extends State<HomePage> {
       },
       child: Container(
         decoration: BoxDecoration(
+          border: Border.all(color: const Color.fromRGBO(0, 0, 0, 0.3)),
           borderRadius: const BorderRadius.all(Radius.circular(8)),
           image: DecorationImage(
-            image: AssetImage("assets/" + image),
+            image: AssetImage("assets/screenshots/" + image),
             fit: BoxFit.cover,
           ),
         ),
@@ -126,7 +126,10 @@ class _HomePageState extends State<HomePage> {
               width: MediaQuery.of(context).size.width,
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 14),
               decoration: const BoxDecoration(
-                  color: Color.fromRGBO(255, 255, 255, 0.2)),
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(8),
+                      bottomRight: Radius.circular(8)),
+                  color: Color.fromRGBO(0, 0, 0, 0.3)),
               child: Text(
                 title,
                 style: const TextStyle(color: Colors.white),
