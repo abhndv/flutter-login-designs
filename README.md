@@ -1,10 +1,14 @@
-# flutter_login_designs
+# Flutter Login Pages
 
  A few flutter login page designs.
  
 | Screenshots   
 | --- 
-| <img src="assets/screenshots/LoginOne.jpg" height= "400"/> &nbsp; <img src="assets/screenshots/LoginTwo.jpg" height= "400"/>
+| <img src="assets/screenshots/LoginOne.jpg" height= "400"/> &nbsp; <img src="assets/screenshots/LoginTwo.jpg" height= "400"/> &nbsp; <img src="assets/screenshots/LoginThree.jpg" height= "400"/>
+
+## Design Ideas Attribution
+ - [Login Design Three](https://dribbble.com/shots/6774711-Onboarding-Login-Sign-Up)
+
 
 ## Getting Started
 
