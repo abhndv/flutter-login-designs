@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login_designs/pages/login_2.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'login_1.dart';
+import 'login_2.dart';
+import 'login_3.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -53,6 +54,11 @@ class _HomePageState extends State<HomePage> {
       "image": "LoginTwo.jpg",
       "title": "Login Design Light",
       "page": const LoginPageTwo()
+    },
+    {
+      "image": "LoginThree.jpg",
+      "title": "Login White",
+      "page": const LoginPageThree()
     },
   ];
 
